@@ -52,7 +52,7 @@ a:hover img{opacity:0.7; }
    opacity:0.9;
    
    h1 img{width:80%;
-         padding-top:0.5rem;
+         padding-top:0.9rem;
    }
    
    ul{text-align: right;
@@ -79,7 +79,7 @@ a:hover img{opacity:0.7; }
 main{margin:2.5rem 0;
     img{
     max-width:100%;
-    margin-bottom:2rem;
+    margin-bottom:1rem;
     }
     
     p{margin-top:2rem;
@@ -94,31 +94,36 @@ main{margin:2.5rem 0;
     background-color:#fff;
     height:20rem;
     img{max-width:100%;
-	padding-top:2.2rem;
+	padding-top:3.2rem;
     }
-}
+}//title
 
 
 .sectionbox{ display: flex;
 	         flex-wrap:wrap;
             justify-content: space-around;
             align-items: stretch;
-	        padding:3.5rem 0;
+	        padding:4rem 4rem 1.5rem 4rem;
 }
 .concept{width:48%;
-    img{max-width:100%;}
+    margin:1.5rem auto;
+    img{max-width:100%;
+        padding-bottom:2rem;
+    }
     P{font-size:2rem;
         text-align:left;
     }
-    
+}  //concept
+
 .dl-btn{
     margin-top:10rem;
     P{font-size:2.4rem;
         font-weight:bold;    
     }
+}
+.dlimg{width:48%;    
     img{max-width:100%;}
-}    
-    
+  
 }
 
 .wh_can{margin:2rem 5rem 0 5rem;}
@@ -139,12 +144,17 @@ main{margin:2.5rem 0;
      
 }
 
-.use{margin-top:3rem;
-    text-align:left;
+.use{margin:3rem 0 2rem 0;
+    text-align:left;}
     .number{font-family:"sans-serif", "arial" ,Arial , Verdana ,Roboto ,Helvetica ,"游ゴシック" , "Yu Gothic" , "游ゴシック体" , "YuGothic" , "ヒラギノ角ゴ Pro W3" , "Hiragino Kaku Gothic Pro" , "Meiryo UI" , "メイリオ" , Meiryo , "ＭＳ Ｐゴシック" , "MS PGothic",;
         font-size:4rem;}
+    .use_rig{margin:3rem 0 2rem 0; text-align:right;}
     .usetext{font-size:1.6rem;}
-}
+
+
+
+
+.try{margin:2rem 0 6rem 0;}
 
 #faq{margin:0;
 .faq_dt, .faq_dd{
@@ -159,6 +169,39 @@ main{margin:2.5rem 0;
 }
 .faq_dt{background-color:#fff000;}
 .faq_dd{margin-left:0;}
+
+.page-top
+{
+	margin: 0 ;
+	padding: 0 ;
+	display: none ;
+}
+ 
+.page-top p
+{
+	margin: 0 ;
+	padding: 0 ;
+
+	position: fixed ;
+	right: 16px ;
+	bottom: 16px ;
+}
+ 
+.move-page-top
+{
+	display: block ;
+	width: 84px ;
+	height: 84px ;
+
+
+	-webkit-transition:all 0.3s ;
+	-moz-transition:all 0.3s ;
+	transition:all 0.3s ;
+}
+.move-page-top:hover
+{
+	opacity: 0.85 ;
+}
 
 
 footer{border-top:0.5rem solid #e92314; 

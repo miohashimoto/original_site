@@ -51,7 +51,7 @@ a:hover img {
   opacity: 0.9; }
   #headbar h1 img {
     width: 80%;
-    padding-top: 0.5rem; }
+    padding-top: 0.9rem; }
   #headbar ul {
     text-align: right;
     padding-bottom: 0;
@@ -72,7 +72,7 @@ main {
   margin: 2.5rem 0; }
   main img {
     max-width: 100%;
-    margin-bottom: 2rem; }
+    margin-bottom: 1rem; }
   main p {
     margin-top: 2rem;
     font-size: 1.5rem; }
@@ -83,29 +83,35 @@ main {
   height: 20rem; }
   .title img {
     max-width: 100%;
-    padding-top: 2.2rem; }
+    padding-top: 3.2rem; }
 
 .sectionbox {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: stretch;
-  padding: 3.5rem 0; }
+  padding: 4rem 4rem 1.5rem 4rem; }
 
 .concept {
-  width: 48%; }
+  width: 48%;
+  margin: 1.5rem auto; }
   .concept img {
-    max-width: 100%; }
+    max-width: 100%;
+    padding-bottom: 2rem; }
   .concept P {
     font-size: 2rem;
     text-align: left; }
-  .concept .dl-btn {
-    margin-top: 10rem; }
-    .concept .dl-btn P {
-      font-size: 2.4rem;
-      font-weight: bold; }
-    .concept .dl-btn img {
-      max-width: 100%; }
+
+.dl-btn {
+  margin-top: 10rem; }
+  .dl-btn P {
+    font-size: 2.4rem;
+    font-weight: bold; }
+
+.dlimg {
+  width: 48%; }
+  .dlimg img {
+    max-width: 100%; }
 
 .wh_can {
   margin: 2rem 5rem 0 5rem; }
@@ -125,13 +131,22 @@ main {
     font-size: 1.6rem; }
 
 .use {
-  margin-top: 3rem;
+  margin: 3rem 0 2rem 0;
   text-align: left; }
-  .use .number {
-    font-family: "sans-serif", "arial", Arial, Verdana, Roboto, Helvetica, "游ゴシック", "Yu Gothic", "游ゴシック体", "YuGothic", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "Meiryo UI", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic";
-    font-size: 4rem; }
-  .use .usetext {
-    font-size: 1.6rem; }
+
+.number {
+  font-family: "sans-serif", "arial", Arial, Verdana, Roboto, Helvetica, "游ゴシック", "Yu Gothic", "游ゴシック体", "YuGothic", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "Meiryo UI", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic";
+  font-size: 4rem; }
+
+.use_rig {
+  margin: 3rem 0 2rem 0;
+  text-align: right; }
+
+.usetext {
+  font-size: 1.6rem; }
+
+.try {
+  margin: 2rem 0 6rem 0; }
 
 #faq {
   margin: 0; }
@@ -148,6 +163,29 @@ main {
 
 .faq_dd {
   margin-left: 0; }
+
+.page-top {
+  margin: 0;
+  padding: 0;
+  display: none; }
+
+.page-top p {
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  right: 16px;
+  bottom: 16px; }
+
+.move-page-top {
+  display: block;
+  width: 84px;
+  height: 84px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s; }
+
+.move-page-top:hover {
+  opacity: 0.85; }
 
 footer {
   border-top: 0.5rem solid #e92314;
