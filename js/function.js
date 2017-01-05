@@ -90,7 +90,7 @@ $( function()
 
       // メニューバーは初期状態では消しておく
       navBox.hide();
-
+   
       // 表示を開始するスクロール量を設定(px)
       var TargetPos = 350;
 
@@ -111,6 +111,10 @@ $( function()
    });
 
 
+
+
+
+
  $(document).ready(function(){
          $("#sp_menu").click(function(){
            $(".sp_menu_toggle").slideToggle();
@@ -118,10 +122,25 @@ $( function()
           });
 
 
-$(document).ready(function(){
-    $('dl#faq&gt;dd').hide();
-    $('dl#faq&gt;dt').click(function(){
-        $(this).toggleClass('opened').nextUntil('dl#faq&gt;dt').toggle('slow');
-    });
-    $('dl#faq&gt;dt.opened').nextUntil('dl#faq&gt;dt').show('slow');
+
+<!--
+$(function() {
+	var timer = false;
+	$(window).resize(function() {
+		if (timer !== false) {
+			clearTimeout(timer);
+		}
+		timer = setTimeout(function() {
+			if($(window).width()>=768){
+				$(".faq_dt").next(".faq_dd").removeAttr("style");
+			}
+		}, 200);
+	});
+	$(".faq_dt").click(function() {
+		if($(window).width()<768){
+			$(this).next(".faq_dd").slideToggle();
+		}
+	});
 });
+-->
+
