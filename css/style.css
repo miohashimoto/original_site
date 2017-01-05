@@ -229,12 +229,14 @@ footer {
     display: flex;
     justify-content: space-around;
     align-items: flex-end; }
-    #spheadber img {
-      max-width: 50%; }
+
+    .spmenu img {
+      max-width: 30%; }
 
   .splogo {
     margin: 0;
-    padding-left: 1.5rem; }
+    padding:0;
+    max-width:50%;}
     .splogo img {
       max-width: 40%; }
 
@@ -254,7 +256,7 @@ footer {
     height: auto; }
     .title img {
       max-width: 100%;
-      padding-top: 2rem; }
+      padding: 2rem auto; }
 
   .cocept_flex {
     justify-content: space-between; 
@@ -302,7 +304,8 @@ footer {
     margin: 1rem 1rem 0 1rem; }
    
   .use img, .use_rig img {
-    max-width:90%; } 
+    max-width:90%;
+     } 
 
   .use_rig p {
     text-align: left; }
