@@ -38,10 +38,11 @@ a:hover img {
 
 #headbar {
   /* ▼上端に固定するCSS */
-  /*position: fixed;*/
+  position: fixed;
   top: 0px;
   left: 0px;
   width: 100%;
+  z-index:100;
   /* ▼バーの装飾 */
   background-color: #fff;
   /* 背景色 */
@@ -49,15 +50,18 @@ a:hover img {
   /* 文字色 */
   box-shadow: 3px 3px 3px rgba(155, 155, 155, 0.5);
   /* 影 */
-  padding: 1.5rem 0 0 0;
-  opacity: 0.9; }
+  padding: 0.5rem 0 0 0;
+  margin-bottom:0;
+  opacity: 0.8; }
+  #headbar h1 {
+   margin-bottom:0.2rem;}
   #headbar h1 img {
     width: 80%;
     padding-top: 0.9rem; }
   #headbar ul {
     text-align: right;
     padding-bottom: 0;
-    margin-bottom: 0.5rem; }
+    margin-bottom: 0; }
   #headbar li {
     display: inline;
     list-style: none; }
@@ -66,8 +70,8 @@ a:hover img {
     font-size: 3.5rem;
     color: #e92314; }
   #headbar .pcmenu li {
-    margin-left: 3.5rem;
-    font-size: 2.2rem;
+    margin-left: 2.2rem;
+    font-size: 2rem;
     font-weight: bold; }
 
 main {
@@ -91,8 +95,11 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-items: stretch;
+  align-items: stretch;}
+  .sectionbox {
   padding: 4rem 4rem 1.5rem 4rem; }
+  
+  .cocept_flex, {padding: 0 4rem 1.5rem 4rem;}
 
 .concept {
   width: 48%;
@@ -133,7 +140,7 @@ main {
     font-size: 1.6rem; }
 
 .use {
-  margin: 1rem 3rem 0 3rem;
+  margin: 1rem 2rem 0 2rem;
   width: 40%;
   text-align: left; }
 
@@ -180,6 +187,7 @@ main {
   position: fixed;
   right: 16px;
   bottom: 16px; }
+  .page-top img{width:85%;}
 
 .move-page-top {
   display: block;
@@ -213,7 +221,7 @@ footer {
 /*SP========================*/
 @media (max-width: 768px) {
   #headbar {
-    display: none; }
+    display:none; }
 
   #spheadber {
     background-color: #fff;
@@ -249,7 +257,9 @@ footer {
       padding-top: 2rem; }
 
   .cocept_flex {
-    justify-content: space-between; }
+    justify-content: space-between; 
+    flex-direction: row;
+	 }
 
   .sectionbox, .footbox {
     flex-direction: column;
@@ -261,14 +271,20 @@ footer {
     .concept .pc_txt {
       display: none; }
 
-  .cocept_flex {
-    flex-direction: row; }
+    
+    
 
   .concept_sp {
     margin-top: 2rem;
     font-size: 1.6rem;
     text-align: left; }
-
+    
+   .dl-btn{  margin-top: 0; }
+  .dl-btn P {
+    font-size: 1.6rem;
+    font-weight: bold; }
+   .dl-btn img{ width:100%;}
+       
   .wh_can {
     margin: 2rem; }
 
@@ -283,7 +299,10 @@ footer {
       margin-bottom: 0.5rem; }
 
   .use, .use_rig {
-    margin: 1rem auto 0 auto; }
+    margin: 1rem 1rem 0 1rem; }
+   
+  .use img, .use_rig img {
+    max-width:90%; } 
 
   .use_rig p {
     text-align: left; }
@@ -295,7 +314,7 @@ footer {
     margin-bottom: 0; }
 
   .tryimg {
-    margin: 0 0 6rem 0; }
+    margin: 0 0 4rem 0; }
 
   #faq {
     margin: 0; }
@@ -305,6 +324,13 @@ footer {
       #faq .faq_dt span, #faq .faq_dd span {
         font-size: 2.8rem;
         padding-right: 1.6rem; }
+.page-top p {
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  right: 5px;
+  bottom: 5px; }	
+.page-top img{width:65%;}	
 
   footer .footbox .ft_text {
     width: 100%; } }

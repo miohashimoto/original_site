@@ -24,10 +24,125 @@
 <!-- js
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script src="js/function.js"></script>
+<script src="js/function.js"></script>
+
+        <!-- スムーズスクロール部分の記述 -->
+        <script>
+        $(function(){
+          // #で始まるアンカーをクリックした場合に処理
+           $('a[href^=#]').click(function() {
+              // スクロールの速度
+              var speed = 400; // ミリ秒
+             // アンカーの値取得
+              var href= $(this).attr("href");
+              // 移動先を取得
+              var target = $(href == "#" || href == "" ? 'html' : href);
+              // 移動先を数値で取得
+             var position = target.offset().top;
+             // スムーススクロール
+             $('body,html').animate({scrollTop:position}, speed, 'swing');
+             return false;
+           });
+        });
+        </script>
+		
+		<!-- ヘッドバー部分の記述 -->
+		<script type="text/javascript">
+   // ページの読み込みが完了してから実行
+   $(function() {
+      // スクロール途中から表示したいメニューバーを指定
+      var navBox = $("#headbar");
+
+      // メニューバーは初期状態では消しておく
+      navBox.hide();
+
+      // 表示を開始するスクロール量を設定(px)
+      var TargetPos = 350;
+
+      // スクロールされた際に実行
+      $(window).scroll( function() {
+         // 現在のスクロール位置を取得
+         var ScrollPos = $(window).scrollTop();
+         // 現在のスクロール位置と、目的のスクロール位置を比較
+         if( ScrollPos > TargetPos ) {
+            // 表示(フェイドイン)
+            navBox.fadeIn();
+         }
+         else {
+            // 非表示(フェイドアウト)
+            navBox.fadeOut();
+         }
+      });
+   });
+</script>
+
+		<!-- ページTOP部分の記述 -->
+		<script type="text/javascript">
+// グローバル変数
+var syncerTimeout = null ;
+
+// 一連の処理
+$( function()
+{
+	// スクロールイベントの設定
+	$( window ).scroll( function()
+	{
+		// 1秒ごとに処理
+		if( syncerTimeout == null )
+		{
+			// セットタイムアウトを設定
+			syncerTimeout = setTimeout( function(){
+
+				// 対象のエレメント
+				var element = $( '#page-top' ) ;
+
+				// 現在、表示されているか？
+				var visible = element.is( ':visible' ) ;
+
+				// 最上部から現在位置までの距離を取得して、変数[now]に格納
+				var now = $( window ).scrollTop() ;
+
+				// 最下部から現在位置までの距離を計算して、変数[under]に格納
+				var under = $( 'body' ).height() - ( now + $(window).height() ) ;
+
+				// 最上部から現在位置までの距離(now)が800以上
+				if( now > 800  )
+				{
+					// 非表示状態だったら
+					if( !visible )
+					{
+						// [#page-top]をゆっくりフェードインする
+						element.fadeIn( 'slow' ) ;
+					}
+				}
+
+				// 1500px以下かつ
+				// 表示状態だったら
+				else if( visible )
+				{
+					// [#page-top]をゆっくりフェードアウトする
+					element.fadeOut( 'slow' ) ;
+				}
+
+				// フラグを削除
+				syncerTimeout = null ;
+			} , 1000 ) ;
+		}
+	} ) ;
+
+	// クリックイベントを設定する
+	$( '#move-page-top' ).click(
+		function()
+		{
+			// スムーズにスクロールする
+			$( 'html,body' ).animate( {scrollTop:0} , 'slow' ) ;
+		}
+	) ;
+} ) ;
+</script>
 
 </head>
- <body>
+  <body>
     <header>
       <div id="headbar">
         <div class="container">
@@ -48,10 +163,18 @@
                 </li>
               </ul>
               <ul class="pcmenu">
-                <li><a href="#about">ぎっくり注意報とは</a></li>
-                <li><a href="#can">機能</a></li>
-                <li><a href="#using">使い方</a></li>
-                <li><a href="qa">FAQ</a></li>
+                <li>
+                  <a href="#about">ぎっくり注意報とは</a>
+                </li>
+                <li>
+                  <a href="#can">機能</a>
+                </li>
+                <li>
+                  <a href="#using">使い方</a>
+                </li>
+                <li>
+                  <a href="#qa">FAQ</a>
+                </li>
               </ul>
             </div>
             <!--/nine colums-->
@@ -61,36 +184,36 @@
         <!--/container-->
       </div>
       <!--/headbar-->
-      
       <div id="spheadber">
-  
-     
-        <div class="spmenu "><img class="u-max-full-width" src="img/sp_menu.png" srcset="img/sp_menu2x.png 2x" alt="menu" /></div>
-       
-        <div class="splogo "><img class="u-max-full-width" src="img/logo.png" srcset="img/logo2x.png 2x" alt="ぎっくり注意報" /></div>
-
+        <div class="spmenu ">
+          <img class="u-max-full-width" src="img/sp_menu.png" srcset="img/sp_menu2x.png 2x" alt="menu" />
+        </div>
+        <div class="splogo ">
+          <img class="u-max-full-width" src="img/logo.png" srcset="img/logo2x.png 2x" alt="ぎっくり注意報" />
+        </div>
         <ul class="sp_snsbtn">
-                <li>
-                  <i class="fa fa-twitter" aria-label="twitter"></i>
-                </li>
-                <li>
-                  <i class="fa fa-facebook-official" aria-label="facebook"></i>
-                </li>
-              </ul>
-            <div class="clearfix"></div>
-
+          <li>
+            <i class="fa fa-twitter" aria-label="twitter"></i>
+          </li>
+          <li>
+            <i class="fa fa-facebook-official" aria-label="facebook"></i>
+          </li>
+        </ul>
+        <div class="clearfix"></div>
       </div>
       <!--/spheadber-->
     </header>
     <main>
       <div class="container">
         <img class="u-max-full-width" src="img/maintitle.png" srcset="img/maintitle2x.png 2x" alt="朗報　good news ぎっくり注意報　ついにrelease" />
-        <p>気候や気圧の変動を事前に知ることで、痛みに気をつけて、生活することができる、慢性腰痛に悩む方向けのアプリです。
-          <br>＊これは、架空のアプリです。
+        <p>気候や気圧の変動を事前に知ることで、痛みに気をつけて、生活することができる、慢性腰痛に悩む方向けのアプリです。 
+          <br>＊これは、架空のアプリです。 
         </p>
         <img src="img/main_peaple.png" srcset="img/main_peaple2x.png 2x" alt="" />
         <div>
-          <a href="#about"><img class="u-max-full-width" src="img/arrow.png" srcset="img/arrow2x.png 2x" alt=""/></a>
+          <a href="#about">
+            <img class="u-max-full-width" src="img/arrow.png" srcset="img/arrow2x.png 2x" alt=""/>
+          </a>
         </div>
       </div>
     </main>
@@ -102,27 +225,26 @@
       </div>
     </div>
     <div class="container concept_sp">
-      <p>ぎっくり注意報は
-          <br>気候や天気、気圧の変動により腰の痛みに悩んでいる人が事前に変動を知ることで、 
-          <br>痛みが起こりやすい体勢や、長時間歩くなどを避けるように促すアプリです。
-        </p>
-      </div>  
+      <p>ぎっくり注意報は 
+        <br>気候や天気、気圧の変動により腰の痛みに悩んでいる人が事前に変動を知ることで、 
+        <br>痛みが起こりやすい体勢や、長時間歩くなどを避けるように促すアプリです。 
+      </p>
+    </div>
     <div class="container cocept_flex">
       <div class="concept u-max-full-width">
         <img src="img/img01.png" srcset="img/img01_2x.png 2x" alt="" />
       </div>
       <div class="concept u-max-full-width">
-        <p class="pc_txt">ぎっくり注意報は
+        <p class="pc_txt">ぎっくり注意報は 
           <br>気候や天気、気圧の変動により腰の痛みに悩んでいる人が事前に変動を知ることで、 
-          <br>痛みが起こりやすい体勢や、長時間歩くなどを避けるように促すアプリです。
+          <br>痛みが起こりやすい体勢や、長時間歩くなどを避けるように促すアプリです。 
         </p>
-      
         <div class="dl-btn">
           <p>まずはダウンロード！</p>
           <img class="u-max-full-width dlimg" src="img/appstore.png" srcset="img/appstore2x.png 2x" alt="app storeからダウンロード"/>
           <img class="u-max-full-width dlimg" src="img/googleplay.png" srcset="img/googleplay2x.png 2x" alt="google playで手に入れよう"/>
         </div>
-      </div>  
+      </div>
     </div>
     <div id="can" class="title">
       <div class="container">
@@ -136,8 +258,8 @@
         <h3>
           <i class="fa fa-line-chart" aria-hidden="true"></i>予測する
         </h3>
-        <p>１週間分の天気と気圧予報をおしらせします。
-          <br>お天気アプリとしても活躍！
+        <p>１週間分の天気と気圧予報をおしらせします。 
+          <br>お天気アプリとしても活躍！ 
         </p>
         <img class="u-max-full-width" src="img/illust01.png" srcset="img/illust01_2x.png 2x" alt="" />
       </div>
@@ -170,40 +292,41 @@
         </h2>
       </div>
     </div>
-      <div class="container sectionbox">
-        <div class="use">
-          <p class="number">1.</p>
-          <p class="usetext">まずはアプリをダウンロード！</p>
-          <img class="u-max-full-width dlimg" src="img/appstore.png" srcset="img/appstore2x.png 2x" alt="app storeからダウンロード"/>
-          <img class="u-max-full-width dlimg" src="img/googleplay.png" srcset="img/googleplay2x.png 2x" alt="google playで手に入れよう"/>
-        </div>
-        <div class="use">
-          <img class="u-max-full-width" src="img/illust05.png" srcset="img/illust05_2x.png 2x" alt="" />
-        </div>
-      </div><!--/sectionbox-->
-      <div class="container sectionbox">
-        <div class="use_rig">
-          <img class="u-max-full-width" src="img/illust06.png" srcset="img/illust06_2x.png 2x" alt="" />
-        </div>
-        <div class="use_rig">
-          <p class="number">2.</p>
-          <p class="usetext">自分がよくいる場所を登録！</p>
-        </div>
+    <div class="container sectionbox">
+      <div class="use">
+        <p class="number">1.</p>
+        <p class="usetext">まずはアプリをダウンロード！</p>
+        <img class="u-max-full-width dlimg" src="img/appstore.png" srcset="img/appstore2x.png 2x" alt="app storeからダウンロード"/>
+        <img class="u-max-full-width dlimg" src="img/googleplay.png" srcset="img/googleplay2x.png 2x" alt="google playで手に入れよう"/>
       </div>
-      <!--/sectionbox-->
-      <div class="container sectionbox">
-        <div class="use">
-          <p class="number">3.</p>
-          <p class="usetext">アラート通知が来たら、
-            <br>心構えと、痛くならない工夫を！
-          </p>
-        </div>
-        <div class="use">
-          <img class="u-max-full-width" src="img/illust07.png" srcset="img/illust07_2x.png 2x" alt="" />
-        </div>
+      <div class="use">
+        <img class="u-max-full-width" src="img/illust05.png" srcset="img/illust05_2x.png 2x" alt="" />
       </div>
-      <!--/sectionbox-->
-      <div class="container">
+    </div>
+    <!--/sectionbox-->
+    <div class="container sectionbox">
+      <div class="use_rig">
+        <img class="u-max-full-width" src="img/illust06.png" srcset="img/illust06_2x.png 2x" alt="" />
+      </div>
+      <div class="use_rig">
+        <p class="number">2.</p>
+        <p class="usetext">自分がよくいる場所を登録！</p>
+      </div>
+    </div>
+    <!--/sectionbox-->
+    <div class="container sectionbox">
+      <div class="use">
+        <p class="number">3.</p>
+        <p class="usetext">アラート通知が来たら、 
+          <br>心構えと、痛くならない工夫を！ 
+        </p>
+      </div>
+      <div class="use">
+        <img class="u-max-full-width" src="img/illust07.png" srcset="img/illust07_2x.png 2x" alt="" />
+      </div>
+    </div>
+    <!--/sectionbox-->
+    <div class="container">
       <div class="row">
         <div class="six columns try">
           <img class="u-max-full-width" src="img/lets.png" srcset="img/lets2x.png 2x" alt="let'try enjoy" />
@@ -219,7 +342,7 @@
     <div id="qa" class="title">
       <div class="container">
         <h2>
-          <img  style="max-width:42%;" class="u-max-full-width" src="img/title4.png" srcset="img/title04_2x.png 2x" alt="FAQ よくある質問！" />
+          <img style="max-width:42%;" class="u-max-full-width" src="img/title4.png" srcset="img/title04_2x.png 2x" alt="FAQ よくある質問！" />
         </h2>
       </div>
     </div>
@@ -250,15 +373,18 @@
       </dd>
     </dl>
     <div id="page-top" class="page-top">
-	<p><a id="move-page-top" class="move-page-top"><img src="img/top.png" srcset="img/top2x.png 2x" alt="pagetopへ" /></a></p>
-</div>
-    
+      <p>
+        <a id="move-page-top" class="move-page-top">
+          <img src="img/top.png" srcset="img/top2x.png 2x" alt="pagetopへ" />
+        </a>
+      </p>
+    </div>
     <footer>
       <div class="footbox">
         <div class="ft_text">
           <p>
             <span>お問い合わせは</span>
-            <br>しないでください。
+            <br>しないでください。 
           </p>
         </div>
         <div class="ft_text">
