@@ -221,7 +221,10 @@ footer {
 /*SP========================*/
 @media (max-width: 768px) {
   #headbar {
-    display:none; }
+   position: absolute;
+        /* 画面外に配置 */
+        top: -500px; 
+    }
 
   #spheadber {
     background-color: #fff;
