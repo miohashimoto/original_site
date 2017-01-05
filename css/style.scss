@@ -101,7 +101,7 @@ main{margin:2.5rem 0;
 }//title
 
 
-.sectionbox{ display: flex;
+.cocept_flex,.sectionbox{ display: flex;
 	         flex-wrap:wrap;
             justify-content: space-around;
             align-items: stretch;
@@ -109,6 +109,7 @@ main{margin:2.5rem 0;
 }
 .concept{width:48%;
     margin:1.5rem auto;
+
     img{max-width:100%;
         padding-bottom:2rem;
     }
@@ -146,17 +147,23 @@ main{margin:2.5rem 0;
      
 }
 
-.use{margin:3rem 0 2rem 0;
+.use{margin:1rem 3rem 0 3rem;
+    width:40%;
     text-align:left;}
     .number{font-family:"sans-serif", "arial" ,Arial , Verdana ,Roboto ,Helvetica ,"游ゴシック" , "Yu Gothic" , "游ゴシック体" , "YuGothic" , "ヒラギノ角ゴ Pro W3" , "Hiragino Kaku Gothic Pro" , "Meiryo UI" , "メイリオ" , Meiryo , "ＭＳ Ｐゴシック" , "MS PGothic",;
         font-size:4rem;}
-    .use_rig{margin:3rem 0 2rem 0; text-align:right;}
+    .use_rig{margin:3rem 0 0 0; 
+            width:40%;
+        
+        P{text-align:right;}
+    }
     .usetext{font-size:1.6rem;}
 
 
 
 
-.try{margin:2rem 0 6rem 0;}
+.try,.tryimg{margin:2rem 0 6rem 0;}
+
 
 #faq{margin:0;
 .faq_dt, .faq_dd{
@@ -249,7 +256,7 @@ footer{border-top:0.5rem solid #e92314;
    li{display:inline;
       list-style:none;
       margin-left:0.5rem;
-      font-size:2rem;
+      font-size:2.8rem;
       color:$red;
     }
     
@@ -259,12 +266,23 @@ img{max-width:100%;
     }
 }//titile
 
-.sectionbox{  flex-direction:column;
+.cocept_flex{justify-content:space-between;}
+.sectionbox,.footbox{  flex-direction:column;
 padding:0.2rem;
     
 }
-.wh_can{margin:1rem;}
-.wh_box{width:100%;
+.concept{width:48%;
+        margin-top:0;
+.pc_txt{display:none;}
+}
+.cocept_flex{flex-direction:row;}
+.concept_sp{margin-top:2rem;
+        font-size:1.6rem;
+        text-align:left;}
+        
+.wh_can{margin:2rem;}
+.wh_box,.use,.use_rig{width:100%;
+        margin-top:1rem;
         margin-bottom:1rem;
 
     h3{letter-spacing:0.2rem;
@@ -273,11 +291,38 @@ padding:0.2rem;
     p{margin-bottom:0.5rem;}
 }//wh_box
 
+.use,.use_rig{margin:1rem auto 0 auto;}
+.use_rig p{text-align:left;}
+.use_rig:first-child{order:2;}
+.try{margin-bottom:0;
+}
+.tryimg{margin:0 0 6rem 0;}
+#faq{margin:0;
+.faq_dt, .faq_dd{
+            padding:1.4rem 1rem;
+             font-size:1.5rem;
+
+     span{font-size:2.8rem;
+                padding-right:1.6rem;}
+}
+}            
+
+
+
+
+
+footer{
+    .footbox{
+    .ft_text{width:100%;
+}
+}
+}
+
 }//max768px
 
 
 /*PC========================*/
 @media(min-width:768px){
-    #spheadber{display:none;}
+    #spheadber,.concept_sp{display:none;}
     
 }//min768px

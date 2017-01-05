@@ -87,7 +87,7 @@ main {
     max-width: 100%;
     padding-top: 3.2rem; }
 
-.sectionbox {
+.cocept_flex, .sectionbox {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -133,7 +133,8 @@ main {
     font-size: 1.6rem; }
 
 .use {
-  margin: 3rem 0 2rem 0;
+  margin: 1rem 3rem 0 3rem;
+  width: 40%;
   text-align: left; }
 
 .number {
@@ -141,13 +142,15 @@ main {
   font-size: 4rem; }
 
 .use_rig {
-  margin: 3rem 0 2rem 0;
-  text-align: right; }
+  margin: 3rem 0 0 0;
+  width: 40%; }
+  .use_rig P {
+    text-align: right; }
 
 .usetext {
   font-size: 1.6rem; }
 
-.try {
+.try, .tryimg {
   margin: 2rem 0 6rem 0; }
 
 #faq {
@@ -236,7 +239,7 @@ footer {
     display: inline;
     list-style: none;
     margin-left: 0.5rem;
-    font-size: 2rem;
+    font-size: 2.8rem;
     color: #e92314; }
 
   .title {
@@ -245,24 +248,69 @@ footer {
       max-width: 100%;
       padding-top: 2rem; }
 
-  .sectionbox {
+  .cocept_flex {
+    justify-content: space-between; }
+
+  .sectionbox, .footbox {
     flex-direction: column;
     padding: 0.2rem; }
 
-  .wh_can {
-    margin: 1rem; }
+  .concept {
+    width: 48%;
+    margin-top: 0; }
+    .concept .pc_txt {
+      display: none; }
 
-  .wh_box {
+  .cocept_flex {
+    flex-direction: row; }
+
+  .concept_sp {
+    margin-top: 2rem;
+    font-size: 1.6rem;
+    text-align: left; }
+
+  .wh_can {
+    margin: 2rem; }
+
+  .wh_box, .use, .use_rig {
     width: 100%;
+    margin-top: 1rem;
     margin-bottom: 1rem; }
-    .wh_box h3 {
+    .wh_box h3, .use h3, .use_rig h3 {
       letter-spacing: 0.2rem;
       margin-bottom: 0.5rem; }
-    .wh_box p {
-      margin-bottom: 0.5rem; } }
+    .wh_box p, .use p, .use_rig p {
+      margin-bottom: 0.5rem; }
+
+  .use, .use_rig {
+    margin: 1rem auto 0 auto; }
+
+  .use_rig p {
+    text-align: left; }
+
+  .use_rig:first-child {
+    order: 2; }
+
+  .try {
+    margin-bottom: 0; }
+
+  .tryimg {
+    margin: 0 0 6rem 0; }
+
+  #faq {
+    margin: 0; }
+    #faq .faq_dt, #faq .faq_dd {
+      padding: 1.4rem 1rem;
+      font-size: 1.5rem; }
+      #faq .faq_dt span, #faq .faq_dd span {
+        font-size: 2.8rem;
+        padding-right: 1.6rem; }
+
+  footer .footbox .ft_text {
+    width: 100%; } }
 /*PC========================*/
 @media (min-width: 768px) {
-  #spheadber {
+  #spheadber, .concept_sp {
     display: none; } }
 
 /*# sourceMappingURL=style.css.map */
