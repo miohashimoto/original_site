@@ -231,7 +231,7 @@ footer {
     align-items: flex-end; }
 
     .spmenu img {
-      max-width: 30%; }
+      max-width: 25%; }
 
   .splogo {
     margin: 0;
@@ -245,12 +245,51 @@ footer {
     padding-bottom: 0;
     margin-bottom: 0.2rem; }
 
-  li {
+   .sp_sns{
     display: inline;
     list-style: none;
     margin-left: 0.5rem;
     font-size: 2.8rem;
     color: #e92314; }
+   
+  #sp_menu {
+    cursor: pointer; }
+
+  .sp_menu_toggle {
+    display: none;
+    width: 120%;
+    background-color: #fff;
+    padding: 2rem;
+    margin-left: -2rem; 
+    }
+
+  .sp_menu_toggle ul {
+    list-style: none; }
+
+  .sp_menu_toggle li {
+    list-style: none;
+    border-bottom: 1px solid #e92314;
+    font-size: 1.5rem;
+    text-align: left;
+    height: 2.2rem;
+    margin: 2rem 0; }
+
+  .sp_menu_toggle li a:link {
+    text-decoration: none;
+    color: #e92314; }
+
+  .sp_menu_toggle li a:visited {
+    text-decoration: none;
+    color: #e92314; }
+
+  .sp_menu_toggle li a:hover {
+    text-decoration: none;
+    color: #f65346; }
+
+  .sp_menu_toggle li a:active {
+    text-decoration: none;
+    color: #f65346; }
+ 
 
   .title {
     height: auto; }

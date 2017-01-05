@@ -111,6 +111,13 @@ $( function()
    });
 
 
+ $(document).ready(function(){
+         $("#sp_menu").click(function(){
+           $(".sp_menu_toggle").slideToggle();
+          });
+          });
+
+
 $(document).ready(function(){
     $('dl#faq&gt;dd').hide();
     $('dl#faq&gt;dt').click(function(){
