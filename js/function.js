@@ -110,20 +110,18 @@ $( function()
       });
    });
 
+$(function() {
+     $("#sp_menubtn").click(function() {
+           $("#overlay").fadeIn();　/*ふわっと表示*/
+ });
+     $("#close").click(function() {
+           $("#overlay").fadeOut();　/*ふわっと消える*/
+ });
+});
 
 
 
 
-
- $(document).ready(function(){
-         $("#sp_menu").click(function(){
-           $(".sp_menu_toggle").slideToggle();
-          });
-          });
-
-
-
-<!--
 $(function() {
 	var timer = false;
 	$(window).resize(function() {
@@ -141,6 +139,6 @@ $(function() {
 			$(this).next(".faq_dd").slideToggle();
 		}
 	});
+	
 });
--->
 
